@@ -10,6 +10,20 @@ The dataset consists 18 columns, from which 10 are numerical and 8 are categoric
 
 The intention of this project is using the dataset to predict the online purchases that a user would make if he took different combination of actions.
 
+### Dataset categories
+The following columns are the categorical ones:
+1. Month - this column is represented by the months' abbreviations
+2. OperatingSystems - is represented by numbers
+3. Browser - is represented by numbers
+4. Region - is represented by numbers
+5. TrafficType - is also represented by numbers
+6. VisitorType - is represented by Returning_Visitor or New_Visitor
+7. Weekend - is represented by TRUE or FALSE
+8. Revenue - is represented by TRUE or FALSE
+
+Since the columns: OperatingSystems, Region, TrafficType and VisitorType are categorized by numbers, we cannot know for sure what type of the categories these might be but we might be able to give meaning to these numbers, for example: if we take the OperatingSystems, we can say that 1 is Windows, 2 is Linux and so on.
+The reason why the dataset does not show these categories are because of privacy reasons.
+
 ## Dataset preview
 
 | Administrative | Administrative_Duration | Informational | Informational_Duration | ProductRelated | ProductRelated_Duration | BounceRates | ExitRates | PageValues | SpecialDay | Month | OperatingSystems | Browser | Region | TrafficType | VisitorType          | Weekend | Revenue |
