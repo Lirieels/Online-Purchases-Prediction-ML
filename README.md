@@ -38,10 +38,10 @@ The reason why the dataset does not show these categories are because of privacy
 The project will be developed using Python.
 The goal of this project is that by using the dataset, we would predict the online purchases that a user would make if he took different combination of actions.
 
-# NOTES
+# Notes
 
 The information here are not final and will be updated frequently until the project is finished completely.
 
 # About
 
-This project is being developed as a project work of the "Machine Learning" course at Unviersity of Prishtina. 
+This project is being developed as a project work of the "Machine Learning" course by two students of Unviersity of Prishtina. 
