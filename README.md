@@ -1,4 +1,4 @@
-# Online-Purchases-Prediction-ML
+# Machine Learning - Online Purchases Predcitions
 
 The project will use the Online Shoppers Purchasing Intention Dataset which can be found on the link [here](https://www.kaggle.com/datasets/imakash3011/online-shoppers-purchasing-intention-dataset)
 
