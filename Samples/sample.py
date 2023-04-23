@@ -8,7 +8,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestRegressor
-
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LinearRegression
 def use_sample():
     # Set up the pandas table (for terminal printing)
     desired_width = 2000
@@ -168,7 +169,9 @@ def use_sample():
     print('-------------------------------------------------------------------------------\n')
     rf_model = RandomForestRegressor(n_estimators = 50, random_state = 60)
     rf_model.fit(X_train, y_train);
-    y_pred = knn_model.predict(X_test)
+    y_pred = rf_model.predict(X_test)
+    # Extract the predicted class labels
+    y_pred = np.where(y_pred > 0.5, 1, 0)
     score = accuracy_score(y_pred, y_test)
     print('Accuracy score: ', score, '\n')
     print('CLASSIFICATION REPORT')
@@ -182,10 +185,45 @@ def use_sample():
     print('-------------------------------------------------------------------------------\n')
     rf_model = RandomForestRegressor(n_estimators = 1000, random_state = 42)
     rf_model.fit(X_train, y_train);
-    y_pred = knn_model.predict(X_test)
+    y_pred = rf_model.predict(X_test)
+    # Extract the predicted class labels
+    y_pred = np.where(y_pred > 0.5, 1, 0)
     score = accuracy_score(y_pred, y_test)
     print('Accuracy score: ', score, '\n')
     print('CLASSIFICATION REPORT')
     print(classification_report(y_test, y_pred))
     print('-------------------------------------------------------------------------------')
     print('-------------------------------------------------------------------------------\n')
+
+    # Building model Native Bayes Algorithm
+    print('-------------------------------------------------------------------------------')
+    print('--------------------Using Gaussian Native Bayes Algorithm----------------------')
+    print('-------------------------------------------------------------------------------\n')
+    gnb_model = GaussianNB()
+    gnb_model.fit(X_train, y_train);
+    y_pred = gnb_model.predict(X_test)
+    score = accuracy_score(y_pred, y_test)
+    print('Accuracy score: ', score, '\n')
+    print('CLASSIFICATION REPORT')
+    print(classification_report(y_test, y_pred))
+    print('-------------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------\n')
+
+    # Building model Linear Regression Algorithm
+    print('-------------------------------------------------------------------------------')
+    print('--------------------Using Linear Regression Algorithm----------------------')
+    print('-------------------------------------------------------------------------------\n')
+    lr_model = LinearRegression()
+    lr_model.fit(X_train, y_train);
+    y_pred = lr_model.predict(X_test)
+    # Extract the predicted class labels
+    y_pred = np.where(y_pred > 0.5, 1, 0)
+    score = accuracy_score(y_pred, y_test)
+    print('Accuracy score: ', score, '\n')
+    print('CLASSIFICATION REPORT')
+    print(classification_report(y_test, y_pred))
+    print('-------------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------\n')
+
+
+
