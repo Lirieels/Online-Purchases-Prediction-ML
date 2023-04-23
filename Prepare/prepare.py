@@ -12,7 +12,7 @@ def prepare_options(data):
     print('-------------------------------------------------------------------------------')
     print('----------------------------------Prepare dataset------------------------------')
     print('-------------------------------------------------------------------------------\n')
-    print('Algorithms:')
+    print('Options:')
     print('1. Remove zero rows')
     print('2. Encoding')
     print('3. Normalize')
