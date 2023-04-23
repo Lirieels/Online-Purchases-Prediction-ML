@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
-
+from sklearn.ensemble import RandomForestRegressor
 
 def use_sample():
     # Set up the pandas table (for terminal printing)
@@ -162,4 +162,30 @@ def use_sample():
     print('-------------------------------------------------------------------------------\n')
 
 
+    # Building model Random Forest Algorithm (1000 decision trees, 42 random state)
+    print('-------------------------------------------------------------------------------')
+    print('----Using Random Forest Algorithm (50 decision trees, 60 random state----------')
+    print('-------------------------------------------------------------------------------\n')
+    rf_model = RandomForestRegressor(n_estimators = 50, random_state = 60)
+    rf_model.fit(X_train, y_train);
+    y_pred = knn_model.predict(X_test)
+    score = accuracy_score(y_pred, y_test)
+    print('Accuracy score: ', score, '\n')
+    print('CLASSIFICATION REPORT')
+    print(classification_report(y_test, y_pred))
+    print('-------------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------\n')
 
+    # Building model Random Forest Algorithm (1000 decision trees, 42 random state)
+    print('-------------------------------------------------------------------------------')
+    print('----Using Random Forest Algorithm (1000 decision trees, 42 random state)-------')
+    print('-------------------------------------------------------------------------------\n')
+    rf_model = RandomForestRegressor(n_estimators = 1000, random_state = 42)
+    rf_model.fit(X_train, y_train);
+    y_pred = knn_model.predict(X_test)
+    score = accuracy_score(y_pred, y_test)
+    print('Accuracy score: ', score, '\n')
+    print('CLASSIFICATION REPORT')
+    print(classification_report(y_test, y_pred))
+    print('-------------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------\n')
