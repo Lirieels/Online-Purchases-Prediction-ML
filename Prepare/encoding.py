@@ -1,17 +1,18 @@
 import os
 import main as main
-from sklearn.preprocessing import StandardScaler
+from sklearn import preprocessing
 
 
-def normalize_options(data):
+def encoding_options(data):
     os.system('cls||clear')
     print('-------------------------------------------------------------------------------')
     print('--------------------------Online Purchases Predictions-------------------------')
     print('-------------------------------------------------------------------------------')
-    print('--------------------------------Normalize dataset------------------------------')
+    print('-----------------------------------Encode dataset------------------------------')
     print('-------------------------------------------------------------------------------\n')
     print('Methods:')
-    print('1. Standard Scaler')
+    print('1. Label Encoding')
+    print('1. One-Hot Encoding')
     print('0. Go to home')
     while True:
         try:
@@ -20,8 +21,8 @@ def normalize_options(data):
                 main.options_selector(data)
                 break
             elif option == 1:
-                data = normalize_standard_scaler(data)
-                print('Normalizing using Standard Scaler finished!')
+                data = label_encoding(data)
+                print('Label Encoding finished!')
             else:
                 print("That's not a valid option!")
 
@@ -29,14 +30,10 @@ def normalize_options(data):
             print("That's not a valid option!")
 
 
-
-
-def normalize_standard_scaler(data):
-    # Normalize the dataset
-    scaler = StandardScaler()
-    # Get only the numerical columns
-    numerical_dataset = data[data.columns[:-1]].select_dtypes(include='number')
-    # Transform (normalize) the numerical columns
-    data[numerical_dataset.columns] = scaler.fit_transform(numerical_dataset)
-
+def label_encoding(data):
+    # Encode labels (transform categorical data to numerical ones)
+    le = preprocessing.LabelEncoder()
+    for column_name in data.columns:
+        if data[column_name].dtype == object:
+            data[column_name] = le.fit_transform(data[column_name])
     return data

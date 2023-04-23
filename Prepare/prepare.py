@@ -2,6 +2,7 @@ import os
 import main as main
 import dataset as dataset
 import normalize as normalize
+import encoding as encoding
 
 
 def prepare_options(data):
@@ -13,12 +14,13 @@ def prepare_options(data):
     print('-------------------------------------------------------------------------------\n')
     print('Algorithms:')
     print('1. Remove zero rows')
-    print('2. Normalize')
+    print('2. Encoding')
+    print('3. Normalize')
     print('0. Go to home')
     while True:
         try:
             option = int(input('Please enter one option from above: '))
-            if (option == 1 or option == 2 or option == 0):
+            if option == 1 or option == 2 or option == 3 or option == 0:
                 break
             print("That's not a valid option!")
         except:
@@ -31,7 +33,10 @@ def prepare_options(data):
         data = remove_zero_rows(data)
         dataset.count_rows_columns(data)
     elif option == 2:
+        encoding.encoding_options(data)
+    elif option == 3:
         normalize.normalize_options(data)
+
 
 def remove_zero_rows(data):
     # remove rows where the specified columns have values of 0
