@@ -12,6 +12,9 @@ def load_models():
     print('Models:')
     print('1. K-Nearest Neighbors')
     print('2. Decision Tree')
+    print('3. Random Forest Tree')
+    print('4. Gaussian Native Bayes')
+    print('5. Linear Regression')
     print('0. Go to home')
     while True:
         try:
