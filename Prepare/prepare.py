@@ -20,22 +20,21 @@ def prepare_options(data):
     while True:
         try:
             option = int(input('Please enter one option from above: '))
-            if option == 1 or option == 2 or option == 3 or option == 0:
-                break
-            print("That's not a valid option!")
+            if option == 0:
+                main.custom_options_selector(data)
+            elif option == 1:
+                # dataset.count_rows_columns(data)
+                data = remove_zero_rows(data)
+                print("Zero rows removed!")
+            # dataset.count_rows_columns(data)
+            elif option == 2:
+                encoding.encoding_options(data)
+            elif option == 3:
+                normalize.normalize_options(data)
         except:
             print("That's not a valid option!")
 
-    if option == 0:
-        main.options_selector(data)
-    elif option == 1:
-        dataset.count_rows_columns(data)
-        data = remove_zero_rows(data)
-        dataset.count_rows_columns(data)
-    elif option == 2:
-        encoding.encoding_options(data)
-    elif option == 3:
-        normalize.normalize_options(data)
+
 
 
 def remove_zero_rows(data):

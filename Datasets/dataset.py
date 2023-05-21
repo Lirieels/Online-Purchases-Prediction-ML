@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def load_dataset():
@@ -37,3 +38,9 @@ def count_category_columns(data):
     print('The total rows for False (category): ', len(data[data["Revenue"] == False]))
     print('\n-------------------------------------------------------------------------------')
     print('-------------------------------------------------------------------------------\n')
+
+def split(data):
+    X = data[data.columns[:-1]].values
+    y = data[data.columns[-1]].values
+    data = np.hstack((X, np.reshape(y, (-1, 1))))
+    return data, X, y

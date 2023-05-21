@@ -17,7 +17,7 @@ def normalize_options(data):
         try:
             option = int(input('Please enter one option from above: '))
             if option == 0:
-                main.options_selector(data)
+                main.custom_options_selector(data)
                 break
             elif option == 1:
                 data = normalize_standard_scaler(data)

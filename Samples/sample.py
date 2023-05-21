@@ -79,11 +79,7 @@ def use_sample():
 
     def normailze_oversample(dataframe, oversample=False):
 
-        # Encode labels (transform categorical data to numerical ones)
-        le = preprocessing.LabelEncoder()
-        for column_name in dataframe.columns:
-            if dataframe[column_name].dtype == object:
-                dataframe[column_name] = le.fit_transform(dataframe[column_name])
+
 
         # Normalize the dataset
         scaler = StandardScaler()
@@ -91,6 +87,12 @@ def use_sample():
         numerical_dataset = dataframe[dataframe.columns[:-1]].select_dtypes(include='number')
         # Transform (normalize) the numerical columns
         dataframe[numerical_dataset.columns] = scaler.fit_transform(numerical_dataset)
+
+        # Encode labels (transform categorical data to numerical ones)
+        le = preprocessing.LabelEncoder()
+        for column_name in dataframe.columns:
+            if dataframe[column_name].dtype == object:
+                dataframe[column_name] = le.fit_transform(dataframe[column_name])
 
         # Split the dataset into X and y
         X = dataframe[dataframe.columns[:-1]].values

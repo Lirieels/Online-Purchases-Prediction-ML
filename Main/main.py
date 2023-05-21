@@ -55,6 +55,6 @@ def custom_options_selector(data):
     if (option == 1):
         prepare.prepare_options(data)
     elif (option == 2):
-        train.train_options()
+        train.train_options(data)
     elif (option == 3):
         models.load_models()
