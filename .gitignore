@@ -1,0 +1,5 @@
+/Models/DecisionTreeModels/
+/Models/GaussianNativeBayesModels/
+/Models/KNearestNeighborsModels/
+/Models/LinearRegressionModels/
+/Models/RandomForestModels/
