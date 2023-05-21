@@ -10,4 +10,9 @@ def make_directory(path):
 def list_files(path):
     files = os.listdir(path)
     files = [f for f in files if os.path.isfile(path+'/'+f)]
-    print(*files, sep="\n")
+    return files
+
+
+def directory_exists(path):
+    directory_exists = os.path.exists(path)
+    return directory_exists

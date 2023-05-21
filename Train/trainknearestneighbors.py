@@ -7,7 +7,8 @@ from datetime import datetime
 
 def train(data):
     n_neighbors = int(input('Please enter the number of neighbors: '))
-    train, X_train, y_train = dataset.split(data)
+    train, valid, test = dataset.split_train_valid_test(data)
+    train_data, X_train, y_train = dataset.split(train)
     knn_model = KNeighborsClassifier(n_neighbors=n_neighbors)
     print("Please wait while the model is being trained.")
     knn_model.fit(X_train, y_train)

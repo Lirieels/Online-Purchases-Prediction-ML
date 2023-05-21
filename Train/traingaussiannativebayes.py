@@ -6,7 +6,8 @@ from datetime import datetime
 
 
 def train(data):
-    train, X_train, y_train = dataset.split(data)
+    train, valid, test = dataset.split_train_valid_test(data)
+    train_data, X_train, y_train = dataset.split(train)
     gnb_model = GaussianNB()
     print("Please wait while the model is being trained.")
     gnb_model.fit(X_train, y_train)

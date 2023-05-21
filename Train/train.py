@@ -17,8 +17,8 @@ def train_options(data):
     print('Algorithms:')
     print('1. K-Nearest Neighbors')
     print('2. Decision Tree')
-    print('3. Gaussian Native Bayes')
-    print('4. Random Forest')
+    print('3. Random Forest Tree')
+    print('4. Gaussian Native Bayes')
     print('5. Linear Regression')
     print('0. Go to home')
     while True:
@@ -31,9 +31,9 @@ def train_options(data):
             elif option == 2:
                 train_decision_tree.train(data)
             elif option == 3:
-                train_gaussian_native_bayes.train(data)
-            elif option == 4:
                 train_random_forest.train(data)
+            elif option == 4:
+                train_gaussian_native_bayes.train(data)
             elif option == 5:
                 train_linear_regression.train(data)
         except Exception as e:

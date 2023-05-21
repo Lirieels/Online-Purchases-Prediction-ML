@@ -57,4 +57,4 @@ def custom_options_selector(data):
     elif (option == 2):
         train.train_options(data)
     elif (option == 3):
-        models.load_models()
+        models.load_models(data)

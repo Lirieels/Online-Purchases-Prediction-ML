@@ -39,6 +39,13 @@ def count_category_columns(data):
     print('\n-------------------------------------------------------------------------------')
     print('-------------------------------------------------------------------------------\n')
 
+
+def split_train_valid_test(data):
+    train, valid, test = np.split(data.sample(frac=1),
+                                  [int(0.6 * len(data)), int(0.8 * len(data))])
+    return train, valid, test
+
+
 def split(data):
     X = data[data.columns[:-1]].values
     y = data[data.columns[-1]].values
