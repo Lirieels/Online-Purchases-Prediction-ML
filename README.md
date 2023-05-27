@@ -105,6 +105,18 @@ This option lets you train the models mentioned above. It lets your custom input
 
 This option lets you load trained models and predict the results using those models with the provided dataset.
 
+### Results
+
+Some of the models that were trained had the following results:
+
+The file "Random_Forest_Model_20230527084125.sav" was trained using 1000 as the random state and the estimators. The model was trained using the dataset where the zero rows were removed and Label Encoding were applied.
+
+The accuracy score that this model had was 0.96.
+
+The file "K_Nearest_Neighbors_Model_20230527085032.sav" was trained using 800 neighbors and the dataset was normalized before the model was trained.
+
+The accuracy score that this model had was 0.85. We see that we have no improvement from the models of Sample one and Sample Two.
+
 # Project
 
 The project will be developed using Python.
